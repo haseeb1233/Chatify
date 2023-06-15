@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup</title>
+ 
+  <link rel="stylesheet" href="./style/signup.css">
+</head>
+<body>
+ 
+<h1 id="flx">welcome</h1>
+  <div class="form-container">
+    <h2 style="margin-top: 20px; margin-bottom: 20px; color: #00a884; ">Account Details</h2>
+    <form>
+      <input id="firstname" type="text" name="first_name" placeholder="First Name" required>
+      <input id="email"  type="email" name="email" placeholder="Email Address" required>
+      <input id="password"  type="password" name="password" placeholder="Password" required>
+      <input type="submit" value="Sign Up">
+    </form>
+    
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+
+    <button class="aouthbutton">Continue with Google</button>
+    <button class="aouthbuttongit">Continue with Github</button>
+  </div>
+</body>
+</html>
+<script>
+  
+const navLinks = document.querySelector('.nav-links');
+const links = document.querySelectorAll('.nav-links li');
+
+// hamburger.addEventListener('click', () => {
+// // Toggle the nav-links class to show or hide the navigation links
+// navLinks.classList.toggle('nav-active');
+
+// Add animation to each navigation link when the hamburger menu is clicked
+// links.forEach((link, index) => {
+//   if (link.style.animation) {
+//     link.style.animation = '';
+//   } else {
+//     link.style.animation = `fadeIn 0.5s ease-in forwards ${index / 7 + 0.3}s`;
+//   }
+// });
+
+// Animate the hamburger menu to become an X icon
+// hamburger.classList.toggle('toggle');
+// });
+
+
+document.querySelector('.aouthbutton').addEventListener('click',()=>{
+  console.log("yes");
+  window.location.href="http://localhost:7890/user/auth/google"
+})
+document.querySelector('.aouthbuttongit').addEventListener('click',()=>{
+  window.location.href="http://localhost:7890/user/auth/github"
+});
+
+    const form = document.querySelector('form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      
+   const payload = {
+       name:document.getElementById("firstname").value,
+       email:document.getElementById("email").value,
+       password:document.getElementById("password").value,
+   }
+
+   fetch("http://localhost:7890/user/reg",{
+       method:"POST",
+       headers:{"content-type":"application/json"},
+       body:JSON.stringify(payload)
+   
+   }).then(res=> res.json())
+   .then((res)=>{
+   console.log(res)
+   if(res.error){
+    alert(res.error)
+   }else{
+    alert("thakyou for register")
+      window.location.href="./login.html";
+   }
+    })
+   .catch(res=>console.log(res))
+    });
+</script> 
