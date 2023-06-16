@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whatsApp</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="leftside">
+            <div class="header">
+                <div class="userimg" id="myAvtar">
+                    <img src="https://tse4.explicit.bing.net/th?id=OIP.u7Iug2OjvATbIoKov0lDkwHaE8&pid=Api&P=0" alt="" class="cover">
+
+                </div>
+                <ul class="nav-icon">
+                    <li id="group-icon"><ion-icon name="people-outline"></ion-icon></li>
+                    <ul id="contacts-list"></ul>
+                    <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
+                </ul>
+            </div>
+            <div class="search">
+<div>
+    <input type="text" placeholder="Search or start new chat">
+    <ion-icon name="search-outline"></ion-icon>
+</div>
+            </div>
+
+            <!-- chat contect list -->
+            <div class="chat-list">
+                
+                <div class="block active" >
+                    <div class="imgbx">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.KSbuJ35EtQHy2OX4BrJiZwHaLH&pid=Api&P=0" alt="" class="cover">
+
+                    </div>
+                    <div class="details">
+                        <div class="listhead">
+                            <h4>Bhavika</h4>
+                            <p class="time">10:50pm</p>
+                        </div>
+                        <div class="message">
+                            <p>hii how are you</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="block unread">
+                    <div class="imgbx">
+                        <img src="https://tse4.mm.bing.net/th?id=OIP._8Kty4btP3aJuyTfZTaR0wHaHk&pid=Api&P=0" alt="" class="cover">
+
+                    </div>
+                    <div class="details">
+                        <div class="listhead">
+                            <h4>shubham</h4>
+                            <p class="time">09:20pm</p>
+                        </div>
+                        <div class="message">
+                            <p>hello what are you doing</p>
+                            <b>1</b>
+                        </div>
+                    </div>
+                </div>
+                  
+                <div class="block unread">
+                    <div class="imgbx">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.QAY8zJIk3VkCfwdfxr4ilAHaJb&pid=Api&P=0" alt="" class="cover">
+
+                    </div>
+                    <div class="details">
+                        <div class="listhead">
+                            <h4>shivi</h4>
+                            <p class="time">09:20pm</p>
+                        </div>
+                        <div class="message">
+                            <p>hello what are you doing</p>
+                          
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block unread">
+                    <div class="imgbx">
+                        <img src="https://tse3.explicit.bing.net/th?id=OIP.RHT0awftluqCOkjx0gByqgHaIu&pid=Api&P=0" alt="" class="cover">
+
+                    </div>
+                    <div class="details">
+                        <div class="listhead">
+                            <h4>divya</h4>
+                            <p class="time">09:20pm</p>
+                        </div>
+                        <div class="message">
+                            <p>hello what are you doing</p>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rightside">
+
+            <div class="header">
+                <div class="imgtext">
+
+                    <div class="userimg" id="userAvtar">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.KSbuJ35EtQHy2OX4BrJiZwHaLH&pid=Api&P=0" alt="" class="cover">
+                    </div>
+                    <h4 class="name">Bhavika <br><span>online</span></h4>
+                </div>
+
+                <ul class="nav-icon" id="video">
+                    <li><ion-icon name="videocam"></ion-icon></li>
+                    <li><ion-icon name="log-out-outline"></ion-icon></li>
+                </ul>
+            </div>
+
+            <!-- chat shown here -->
+            <div class="chat-box">
+              
+            </div>
+       
+        <!-- chatpad type message here -->
+
+        <div class="chatinput">
+            <ion-icon name="happy-outline"></ion-icon>
+            <ion-icon name="attach-outline"></ion-icon>
+
+            <input type="text" placeholder="Type a message" class="chatInp">
+            <ion-icon name="send" class="sendChat"></ion-icon>
+
+      
+        </div>
+    </div>
+
+    </div>
+    
+</body>
+<script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+<script>
+    const groupIcon = document.getElementById("group-icon");
+const contactsList = document.getElementById("contacts-list");
+
+groupIcon.addEventListener("click", () => {
+  // Retrieve contacts from your data source
+  const contacts = ["Anshuma","shubham","Abdul"];
+//   hardcoded name write now here we have to add our append contects
+
+  // Clear any existing contacts in the list
+  contactsList.innerHTML = "";
+
+  // Display contacts
+  contacts.forEach(contact => {
+    const li = document.createElement("li");
+    li.textContent = contact.name;
+    contactsList.appendChild(li);
+  });
+});
+
+</script>
+<script src="./chatpage.js"></script>
+</html>
