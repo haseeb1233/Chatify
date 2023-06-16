@@ -216,8 +216,8 @@ userRouer.post("/getOtp", async (req, res) => {
       sgMail.setApiKey(process.env.SendGrid_Key);
       const msg = {
         to: req.body.email,
-        from: "thiteshivaji07@gmail.com",
-        subject: "Reset you Password for shubham App",
+        from: "itsmahendramohane@gmail.com",
+        subject: "Reset you Password for whats App",
         text: `Your OTP for Reseting Passwrd is ${globe_opt}`,
       };
       await sgMail.send(msg);
