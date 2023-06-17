@@ -1,5 +1,5 @@
 let globleData,globleRoom,selfObjectId;
-const socket = io("http://localhost:7890/", { transports: ["websocket"] })
+const socket = io("http://localhost:8080/", { transports: ["websocket"] })
 const allConver = document.querySelector(".chat-list");
 const allChat = document.querySelector(".chat-box");
 const chatSend = document.querySelector(".sendChat");
@@ -23,7 +23,7 @@ fetchConnectins(JSON.parse(localStorage.getItem("token")));
 }
 
 async function fetchConnectins(token){
-        let data = await fetch(`http://localhost:7890/chat/getCon`,{
+        let data = await fetch(`http://localhost:8080/chat/getCon`,{
         method:'POST',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${token}`},
         }).then(response => response.json());
@@ -56,7 +56,7 @@ console.log(inp,frendId);
     showNameAndStatus(frendId);
     socket.emit("join-oom",({selfObjectId,inp}))
     globleRoom=inp;
-    fetch(`http://localhost:7890/chat/getMsg`,{
+    fetch(`http://localhost:8080/chat/getMsg`,{
         method:'POST',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`},
         body:JSON.stringify({consId:inp})
@@ -123,7 +123,7 @@ function rennderMsg(res){
     allChat.innerHTML=ar;
 }
 function showNameAndStatus(inp){
-    fetch(`http://localhost:7890/chat/findOne/${inp}`,{
+    fetch(`http://localhost:8080/chat/findOne/${inp}`,{
         method:'GET',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`},
     }).then((res)=>res.json()).then((res)=>{

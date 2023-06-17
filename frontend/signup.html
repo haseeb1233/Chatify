@@ -29,30 +29,13 @@
 const navLinks = document.querySelector('.nav-links');
 const links = document.querySelectorAll('.nav-links li');
 
-// hamburger.addEventListener('click', () => {
-// // Toggle the nav-links class to show or hide the navigation links
-// navLinks.classList.toggle('nav-active');
-
-// Add animation to each navigation link when the hamburger menu is clicked
-// links.forEach((link, index) => {
-//   if (link.style.animation) {
-//     link.style.animation = '';
-//   } else {
-//     link.style.animation = `fadeIn 0.5s ease-in forwards ${index / 7 + 0.3}s`;
-//   }
-// });
-
-// Animate the hamburger menu to become an X icon
-// hamburger.classList.toggle('toggle');
-// });
-
 
 document.querySelector('.aouthbutton').addEventListener('click',()=>{
   console.log("yes");
-  window.location.href="http://localhost:7890/user/auth/google"
+  window.location.href="http://localhost:8080/user/auth/google"
 })
 document.querySelector('.aouthbuttongit').addEventListener('click',()=>{
-  window.location.href="http://localhost:7890/user/auth/github"
+  window.location.href="http://localhost:8080/user/auth/github"
 });
 
     const form = document.querySelector('form');
@@ -69,7 +52,7 @@ document.querySelector('.aouthbuttongit').addEventListener('click',()=>{
        password:document.getElementById("password").value,
    }
 
-   fetch("http://localhost:7890/user/reg",{
+   fetch("http://localhost:8080/user/reg",{
        method:"POST",
        headers:{"content-type":"application/json"},
        body:JSON.stringify(payload)
