@@ -47,7 +47,7 @@ chatRouer.post("/addCon",async(req,res)=>{
 })
 
 chatRouer.post("/getMsg",async(req,res)=>{
-    // console.log(req.body.consId);
+    // console.log(req.body.consId); 
     try{
         //
         let booking =await msgModel.aggregate([{$match:{consId:req.body.consId }},{$sort:{time: -1}},{$limit:10}])
