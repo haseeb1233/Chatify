@@ -70,6 +70,9 @@ userRouer.get(
 );
 
 //---------------- GitHub Auth Here --------------------------------------------
+
+
+
 userRouer.get("/auth/github", (req, res) => {
   res.redirect(
     `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&scope=user:email`
@@ -98,7 +101,9 @@ userRouer.get("/auth/github/callback", async (req, res) => {
       Authorization: `Bearer ${acces_Token.access_token}`,
       "content-type": "application/json",
     },
-  }).then((res) => res.json());
+  }).then((res) => {
+    console.log(res)
+    return res.json()});
   const user_Email = await fetch("https://api.github.com/user/emails", {
     method: "GET",
     headers: {
@@ -113,14 +118,17 @@ userRouer.get("/auth/github/callback", async (req, res) => {
     avtar: user.avatar_url,
     role: "custemer",
   };
+  console.log(user_details)
   const fetch_user = await userModel.findOne({ email: user_details.email });
   if (fetch_user) {
     token_Genretor(res, fetch_user.name, fetch_user._id, fetch_user.role);
+    res.redirect(`http://127.0.0.1:5501/frontend/chatpage.html?avtar=${req.user.avatar}&id=${fetch_user._id}&token=${token}&refreshToken=${refreshToken}`)
   } else {
     user_details.password = bcrypt.hashSync(user_details.password, 2);
     const user = new userModel(user_details);
     await user.save();
     token_Genretor(res, user_details.name, "login with github", "custemer");
+    res.redirect(`http://127.0.0.1:5501/frontend/chatpage.html?avtar=${req.user.avatar}&id=${fetch_user._id}&token=${token}&refreshToken=${refreshToken}`)
   }
 });
 
@@ -216,8 +224,8 @@ userRouer.post("/getOtp", async (req, res) => {
       sgMail.setApiKey(process.env.SendGrid_Key);
       const msg = {
         to: req.body.email,
-        from: "thiteshivaji07@gmail.com",
-        subject: "Reset you Password for shubham App",
+        from: "itsmahendramohane11@gmail.com",
+        subject: "Reset you Password for whats app",
         text: `Your OTP for Reseting Passwrd is ${globe_opt}`,
       };
       await sgMail.send(msg);

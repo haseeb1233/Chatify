@@ -1,20 +1,20 @@
-const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
+const {Server} = require('socket.io');
+const http = require('http');
 const { redis } = require("./helpers/redis");
 const { connection } = require("./configration/db");
 const { userRouer } = require("./routes/userRouter");
+// const { blogeRouter } = require("./allRouters/blogsRouter");
 const { twitterRouter } = require("./routes/twitterRouter");
 const { validator } = require("./middleware/middlewares");
 const cookieParser = require("cookie-parser");
 const winston = require("winston");
 const expressWinston = require("express-winston");
+const express = require("express");
 const {chatRouer}= require("./routes/chatRouter")
 const {msgModel} = require("./models/messageModle")
 const { conModel }  = require("./models/conModle")
-const {Server} = require('socket.io');
-const http = require('http');
-
 
 
 const app = express();
@@ -22,40 +22,41 @@ app.use(cors());
 app.use(cors({
   origin : '*'
 }))
+const httpServer =  http.createServer(app);
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 // winston logging
 app.use(expressWinston.logger({
-    transports: [
-      new winston.transports.File({
-        filename: 'file.log',
-        level:"info"
-      }),
-    ],
-    format: winston.format.combine(
-      winston.format.colorize(),
-      winston.format.json(),
-      winston.format.prettyPrint()
-    ),
-  }));
-  
-  app.use(expressWinston.errorLogger({
-    transports: [
-      new winston.transports.Console({
-        level:"errer"
-      })
-    ],
-    format: winston.format.combine(
-      winston.format.colorize(),
-      winston.format.json(),
-      winston.format.prettyPrint()
-    ),
-  }));
+  transports: [
+    new winston.transports.File({
+      filename: 'file.log',
+      level:"info"
+    }),
+  ],
+  format: winston.format.combine(
+    winston.format.colorize(),
+    winston.format.json(),
+    winston.format.prettyPrint()
+  ),
+}));
 
+app.use(expressWinston.errorLogger({
+  transports: [
+    new winston.transports.Console({
+      level:"errer"
+    })
+  ],
+  format: winston.format.combine(
+    winston.format.colorize(),
+    winston.format.json(),
+    winston.format.prettyPrint()
+  ),
+}));
+//soimple routes after this only
 
-
-  app.use("/user", userRouer);
+app.use("/user", userRouer);
 app.use("/twitter", twitterRouter);
 app.use("/chat",validator,chatRouer)
 const io = new Server(httpServer , {
@@ -139,18 +140,14 @@ app.get("/", (req, res) => {
   }
 });
 
-
-const httpServer =  http.createServer(app);
-
-
 httpServer.listen(process.env.PORT , async() => {
-    try {
-        await connection;
-        console.log(`connected to mongodb`);
-        // console.log("Redis connected");
-    } catch (error) {
-        console.log(error.message)
-        // console.log("Redis not connected");
-    }
-    console.log(`Server started at ${process.env.PORT}`);
-  })
+  try {
+      await connection;
+      console.log(`connected to db`);
+      console.log("Redis connected");
+  } catch (error) {
+      console.log("Redis not connected");
+  }
+  console.log(`Server started at ${process.env.PORT}`);
+})
+
