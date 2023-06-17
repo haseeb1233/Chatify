@@ -24,7 +24,7 @@ console.log(room);
     async function fetching(){
         try {
             // const room = Math.floor(Math.random() * 900) + 100;
-            const request = await fetch(`http://localhost:7890/create`, {
+            const request = await fetch(`http://localhost:8080/create`, {
                 method:"POST",
                 headers: {
                     "content-type": "application/json"
@@ -76,7 +76,7 @@ joinRoom.addEventListener("click", () => {
     document.getElementsByClassName('swal2-confirm swal2-styled')[0].addEventListener("click", async() => {
         const roomID = document.getElementById('roomID').value;
         try {
-            const request = await fetch(`http://localhost:7890/join`, {
+            const request = await fetch(`http://localhost:8080/join`, {
                 method:"POST",
                 headers: {
                     "content-type": "application/json"

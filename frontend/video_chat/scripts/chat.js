@@ -1,9 +1,9 @@
 new AWN().asyncBlock(
-    fetch('http://localhost:7890/start'),
+    fetch('http://localhost:8080/start'),
     'Room Joined Successfully',
 )
 
-const socket = io('http://localhost:7890/');
+const socket = io('http://localhost:8080/');
 const videoDiv = document.getElementById('videoDiv');
 const hideA = document.getElementById('hide-audio');
 const hideV = document.getElementById('hide-video');
