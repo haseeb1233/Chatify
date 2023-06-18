@@ -16,11 +16,10 @@ const {chatRouer}= require("./routes/chatRouter")
 const {msgModel} = require("./models/messageModle")
 const { conModel }  = require("./models/conModle")
 
-
 const app = express();
 app.use(cors());
 app.use(cors({
-  origin : '*'
+  origin: '*'
 }))
 const httpServer =  http.createServer(app);
 app.use(express.json());
@@ -54,7 +53,7 @@ app.use(expressWinston.errorLogger({
     winston.format.prettyPrint()
   ),
 }));
-//soimple routes after this only
+//simple routes after this only
 
 app.use("/user", userRouer);
 app.use("/twitter", twitterRouter);
@@ -64,52 +63,7 @@ const io = new Server(httpServer , {
       origin : '*'
   }
 })
-app.get("/start" , async(req,res) => {
-  // Using setitemout so that the connection should be established
-  try {
-      setTimeout(()=>{
-          res.status(202).send({"ok":true,"msg":"Connection Established successfully"});
-      },500)
-      
-  } catch (error) {
-      res.send({"ok":false,"msg":"Something went wrong"});
-  }
-})
-app.post("/create", async (req, res) => {
-  try {
-      const { roomID, type } = req.body;
-      
-      await redis.set(`${roomID}`, `${type}`);
-      console.log(req.body);
-      res.send({ "ok": true, "msg": "Room created successfully" });
-  } catch (error) {
-      console.log(error);
-      res.send({ "ok": false, "msg": "Something went wrong" });
-  }
-})
 
-app.post('/join', async (req, res) => {
-  try {
-      const { roomID, type } = req.body;
-      let check = await redis.exists(`${roomID}`);
-
-      if(check){
-          const dbType = await redis.get(`${roomID}`);
-          
-          if(dbType == type){
-              res.send({ "ok": true, "msg": "Room joined successfully" });
-          } else {
-              res.send({ "ok": false, "msg": `${type} Room Doesn't Exist`});
-          }
-      } else {
-          res.send({ "ok": false, "msg": "Room Doesn't Exist"});
-      }
-
-  } catch (error) {
-      console.log(error);
-      res.send({ "ok": false, "msg": "Something went wrong" });
-  }
-})
 
 io.on('connection', (socket) => {
   console.log("new user connected",socket.id);
@@ -139,14 +93,14 @@ app.get("/", (req, res) => {
     logger.error(err)
   }
 });
-
+  
 httpServer.listen(process.env.PORT , async() => {
   try {
       await connection;
-      console.log(`connected to db`);
-      console.log("Redis connected");
+      console.log(`connected to DB..`);
+      console.log("Redis connected...");
   } catch (error) {
-      console.log("Redis not connected");
+      console.log("Redis not connected....");
   }
   console.log(`Server started at ${process.env.PORT}`);
 })

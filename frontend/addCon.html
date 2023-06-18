@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Connection</title>
+    <style>
+        body {
+      font-family: Arial, sans-serif;
+      padding: 0;
+     width: 50%;
+     margin: auto;
+     margin-top: 80px;
+    }
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      font-size: 26px;
+      text-align: center;
+    }
+    #contacts-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+       display: block;
+      
+     
+    }
+    #contacts-list {
+        text-align: center;
+    }
+    #contacts-list li {
+      display: block;
+      padding: 15px;
+      background-color: #d9fdd3;
+      margin-bottom: 20px;
+      cursor: pointer;
+      font-size: 22px;
+      
+    }
+    #contacts-list li:hover {
+      background-color: #e2e2e2;
+    }
+    </style>
+</head>
+<body>
+    <h3>Select from all the users to make connection with</h3>
+    <div id="contacts-list">
+
+    </div>
+</body>
+<script>
+    const contactsList = document.getElementById("contacts-list");
+      contactsList.innerHTML = "";
+  // Retrieve contacts from your data source
+  fetch(`http://localhost:8080/chat/`,{
+        method:'GET',
+        headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
+    }).then((res)=>res.json()).then((res)=>{
+        console.log(res);
+        res.forEach((ele)=>{
+            contactsList.innerHTML += `<li onClick="addCon('${ele._id}','${ele.avtar}','${ele.name}')">${ele.name}</li>`
+        })
+    }).catch((err)=>console.log(err)) 
+
+function addCon(id,tar,name){
+    console.log("ok");
+    console.log({frendId:id,frendAvtar:tar,frendName:name,id:JSON.parse(localStorage.getItem("selfObjectId")),myAvtar:JSON.parse(localStorage.getItem("myAvtar")),myName:JSON.parse(localStorage.getItem("myName"))})
+    fetch(`http://localhost:8080/chat/addCon`,{
+        method:'POST',
+        headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
+        body:JSON.stringify({frendId:id,frendAvtar:tar,frendName:name,id:JSON.parse(localStorage.getItem("selfObjectId")),myAvtar:JSON.parse(localStorage.getItem("myAvtar")),myName:JSON.parse(localStorage.getItem("myName"))}),
+    }).then((res)=>res.json()).then((res)=>{
+        console.log(res);
+        if(!res.err){
+            window.location.href="./chatpage.html"
+        }else{
+            alert("Error");
+        }
+    }).catch((err)=>console.log(err)) 
+}
+</script>
+</html>

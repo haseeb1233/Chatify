@@ -112,6 +112,7 @@ span{
 
 <script>
 document.getElementById('createaccount').addEventListener('click', () => {
+  if(confirm(`${document.getElementById('email').value} is this your email want to continue`) == true){
     let obj = {email:document.getElementById('email').value}
     fetch("http://localhost:8080/user/getOtp",{
        method:"POST",
@@ -120,8 +121,14 @@ document.getElementById('createaccount').addEventListener('click', () => {
    
    }).then(res=> res.json())
    .then((res)=>{
-   alert("opt send on your email address")
+    if(!res.err){
+      alert(`opt send on your email ${document.getElementById('email').value}`)
+    }else{
+      alert(`somthing went wrong please try again`)
+    }
+   
    })
+  }
 })
 document.getElementById('signup').addEventListener('click', () => {
     let obj = {email:document.getElementById('email').value,
@@ -134,7 +141,13 @@ document.getElementById('signup').addEventListener('click', () => {
    
    }).then(res=> res.json())
    .then((res)=>{
-   alert("password updated")
+    if(!res.err){
+      alert("password updated")
+      window.location.href = "./login.html";
+    }else{
+      console.log(res.err);
+      alert(`somthing went wrong please try again`)
+    }
    })
 })
 </script> 

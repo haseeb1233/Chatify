@@ -1,5 +1,3 @@
-
-
 const addMsg =async(req,res)=>{
     try{
         req.body.time=new Date(req.body.checkin_date)

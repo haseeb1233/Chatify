@@ -98,7 +98,7 @@ span{
   <div class="form">
         <div id="topsignclose">
             <span>Sign In</span>
-            <button type="button" class="close-button" aria-label="Close form">&times;</button>
+         
   
         </div>
         <input type="email" id="email" name="email" placeholder="EMAIL ADDRESS*" required><br>
@@ -110,7 +110,6 @@ span{
             <button id="signup">LOG IN</button>
           
         </div>
-        <a href="/admin/admin/admin.html">Are You An Admin</a>
       </div>
       
 </body>
@@ -123,7 +122,7 @@ let flag = false
     const createac = document.getElementById('createaccount')
 
     createac.addEventListener("click",()=>{
-        window.location.assign("./sighnup.html")
+        window.location.assign("./index.html")
     })
     document.getElementById('forg').addEventListener("click",()=>{
         window.location.assign("./forgot.html")
@@ -151,14 +150,16 @@ console.log(payload);
    if(res.error){
     alert(res.error)
    }else{
+    console.log(res);
     localStorage.setItem("token", JSON.stringify(res.token));
   localStorage.setItem("refreshToken", JSON.stringify(res.refreshToken));
   localStorage.setItem("myAvtar", JSON.stringify(res.avtar));
   localStorage.setItem("selfObjectId", JSON.stringify(res.id));
-   
+  localStorage.setItem("role", JSON.stringify(res.role));
+  localStorage.setItem("myName", JSON.stringify(res.myName));
    window.location.href = "./chatpage.html";
 
-   }
+   } 
    })
 });
 

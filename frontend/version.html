@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ <style>
+    /* Style for the entire page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for the div with ID "versionList" */
+#versionList {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style for the image */
+img {
+  display: block;
+  margin: auto;
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+  animation: rotate 2s infinite linear;
+}
+
+/* Style for the unordered list */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the list items */
+li {
+  margin: 10px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #888888;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Style for the list items on hover */
+li:hover {
+  background-color: #d4d4d4;
+  transform: scale(1.1);
+  box-shadow: 4px 4px 10px #888888;
+}
+
+/* Style for the arrow icon */
+#arrow {
+  font-size: 30px;
+  color: #999999;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Style for the arrow icon on hover */
+#arrow:hover {
+  color: #666666;
+}
+
+/* Animation for the image */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+ </style>
+</head>
+<body>
+        <div id="versionList">
+            <h2>All Versions</h2>
+        </div>
+        <img src="https://th.bing.com/th/id/OIP.qDP7V18vL8j6wCMcs_CkxAHaFL?w=270&h=188&c=7&r=0&o=5&dpr=2&pid=1.7" alt="">
+        <div>
+            <ul>
+                <li>1.1.1</li>
+                <li>1.1.2</li>
+                <li>1.1.3</li>
+                <li>2.1.1</li>
+                <li>2.1.2</li>
+                <i id="arrow" class='bx bxs-right-arrow-square'></i>
+                <li>2.1.3</li>
+                
+            </ul>
+        </div>
+</body>
+</html>

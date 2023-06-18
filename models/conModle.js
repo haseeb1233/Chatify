@@ -4,7 +4,7 @@ const userSchema = mongoose.Schema({
     userId:{type:String,required:true},
     consId:{type:Number,required:true},
     frendId:{type:String,required:true},
-    lastMsg:{type:String},
+    lastMsg:{type:String,defult:"No Chat Yet"},
     lastTime:{type:String},
     frendAvtar:{type:String},
     self:{type:Boolean},
