@@ -16617,3 +16617,514 @@
   level: '\x1B[32minfo\x1B[39m',
   message: 'HTTP POST /user/forgot'
 }
+{
+  meta: {
+    req: {
+      url: '/user/auth/google',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-user': '?1',
+        'sec-fetch-dest': 'document',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ml;q=0.7'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/user/auth/google',
+      query: {}
+    },
+    res: { statusCode: 302 },
+    responseTime: 2
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP GET /user/auth/google'
+}
+{
+  meta: {
+    req: {
+      url: '/user/auth/google/callback?code=4%2F0AbUR2VNX86ZO2aVKMSRA8Y6yyNWpIvON-J4NDs4cDVPw47-G73rt_aMNQOl7zOvEKv2DZQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-user': '?1',
+        'sec-fetch-dest': 'document',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ml;q=0.7'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/user/auth/google/callback?code=4%2F0AbUR2VNX86ZO2aVKMSRA8Y6yyNWpIvON-J4NDs4cDVPw47-G73rt_aMNQOl7zOvEKv2DZQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent',
+      query: {
+        code: '4/0AbUR2VNX86ZO2aVKMSRA8Y6yyNWpIvON-J4NDs4cDVPw47-G73rt_aMNQOl7zOvEKv2DZQ',
+        scope: 'email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email openid',
+        authuser: '0',
+        prompt: 'consent'
+      }
+    },
+    res: { statusCode: 302 },
+    responseTime: 779
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP GET /user/auth/google/callback?code=4%2F0AbUR2VNX86ZO2aVKMSRA8Y6yyNWpIvON-J4NDs4cDVPw47-G73rt_aMNQOl7zOvEKv2DZQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent'
+}
+{
+  meta: {
+    req: {
+      url: '/chat/getCon',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'content-length': '0',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+        'content-type': 'Application/json',
+        'sec-ch-ua-mobile': '?0',
+        authorization: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQWJkdWwgSGFzZWViIFRLIiwiaWQiOiI2NDhlZjVlYzBlZDRmODM1Y2E0MDk2ODMiLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NzEwMDUxNywiZXhwIjoxNjg3MTAyMzE3fQ.aLat34kDpfkcBSYw8ONcRdMqjq2QXZaP6OAIsFm1xI0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ml;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/chat/getCon',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 50
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP POST /chat/getCon'
+}
+{
+  meta: {
+    req: {
+      url: '/user/auth/google',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51',
+        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-user': '?1',
+        'sec-fetch-dest': 'document',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-US,en;q=0.9'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/user/auth/google',
+      query: {}
+    },
+    res: { statusCode: 302 },
+    responseTime: 0
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP GET /user/auth/google'
+}
+{
+  meta: {
+    req: {
+      url: '/user/auth/google/callback?code=4%2F0AbUR2VMuQx6DfmXfSq0y8qDdSeNDa1cHnxNO3b1qFCZknu0YhLAFl22Rxh7qJP7tBlrjTA&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'upgrade-insecure-requests': '1',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51',
+        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-user': '?1',
+        'sec-fetch-dest': 'document',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-US,en;q=0.9'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/user/auth/google/callback?code=4%2F0AbUR2VMuQx6DfmXfSq0y8qDdSeNDa1cHnxNO3b1qFCZknu0YhLAFl22Rxh7qJP7tBlrjTA&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none',
+      query: {
+        code: '4/0AbUR2VMuQx6DfmXfSq0y8qDdSeNDa1cHnxNO3b1qFCZknu0YhLAFl22Rxh7qJP7tBlrjTA',
+        scope: 'email profile openid https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
+        authuser: '0',
+        prompt: 'none'
+      }
+    },
+    res: { statusCode: 302 },
+    responseTime: 702
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP GET /user/auth/google/callback?code=4%2F0AbUR2VMuQx6DfmXfSq0y8qDdSeNDa1cHnxNO3b1qFCZknu0YhLAFl22Rxh7qJP7tBlrjTA&scope=email+profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&authuser=0&prompt=none'
+}
+{
+  meta: {
+    req: {
+      url: '/chat/getCon',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'content-length': '0',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"',
+        'content-type': 'Application/json',
+        'sec-ch-ua-mobile': '?0',
+        authorization: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQWJkdWwgSGFzZWViIFRLIiwiaWQiOiI2NDhlZjVlYzBlZDRmODM1Y2E0MDk2ODMiLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NzEwMDU0NCwiZXhwIjoxNjg3MTAyMzQ0fQ.zRw2a6eWjvt-D8J5Y_3UeEkEQWa5V8MVgN4jh8cOGo0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51',
+        'sec-ch-ua-platform': '"Windows"',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-US,en;q=0.9'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/chat/getCon',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 60
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP POST /chat/getCon'
+}
+{
+  meta: {
+    req: {
+      url: '/user/log',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'content-length': '47',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51',
+        'content-type': 'application/json',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-US,en;q=0.9'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/user/log',
+      query: {}
+    },
+    res: { statusCode: 202 },
+    responseTime: 152
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP POST /user/log'
+}
+{
+  meta: {
+    req: {
+      url: '/chat/getCon',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'content-length': '0',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"',
+        'content-type': 'Application/json',
+        'sec-ch-ua-mobile': '?0',
+        authorization: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiaGVsbG8iLCJpZCI6IjY0OGVmNjA0MGVkNGY4MzVjYTQwOTY4OCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg3MTAwNTU1LCJleHAiOjE2ODcxMDc3NTV9.SEE8BE7IP3hSvjMSPnSMACuixLc-EuEGU7GmAk4YbBQ',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51',
+        'sec-ch-ua-platform': '"Windows"',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-US,en;q=0.9'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/chat/getCon',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 79
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP POST /chat/getCon'
+}
+{
+  meta: {
+    req: {
+      url: '/chat/getMsg',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'content-length': '13',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+        'content-type': 'Application/json',
+        refresh: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQWJkdWwgSGFzZWViIFRLIiwiaWQiOiI2NDhlZjVlYzBlZDRmODM1Y2E0MDk2ODMiLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NzEwMDUxNywiZXhwIjoxNjg3MTAwNjM3fQ.qA5fpt2ysyqq-EGljdAJEkqVWVa24-APIoCHycqnVYM',
+        'sec-ch-ua-mobile': '?0',
+        authorization: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQWJkdWwgSGFzZWViIFRLIiwiaWQiOiI2NDhlZjVlYzBlZDRmODM1Y2E0MDk2ODMiLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NzEwMDUxNywiZXhwIjoxNjg3MTAyMzE3fQ.aLat34kDpfkcBSYw8ONcRdMqjq2QXZaP6OAIsFm1xI0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ml;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/chat/getMsg',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 55
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP POST /chat/getMsg'
+}
+{
+  meta: {
+    req: {
+      url: '/chat/findOne/648ef6040ed4f835ca409688',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+        'content-type': 'Application/json',
+        refresh: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQWJkdWwgSGFzZWViIFRLIiwiaWQiOiI2NDhlZjVlYzBlZDRmODM1Y2E0MDk2ODMiLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NzEwMDUxNywiZXhwIjoxNjg3MTAwNjM3fQ.qA5fpt2ysyqq-EGljdAJEkqVWVa24-APIoCHycqnVYM',
+        'sec-ch-ua-mobile': '?0',
+        authorization: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQWJkdWwgSGFzZWViIFRLIiwiaWQiOiI2NDhlZjVlYzBlZDRmODM1Y2E0MDk2ODMiLCJyb2xlIjoidXNlciIsImlhdCI6MTY4NzEwMDUxNywiZXhwIjoxNjg3MTAyMzE3fQ.aLat34kDpfkcBSYw8ONcRdMqjq2QXZaP6OAIsFm1xI0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        'sec-ch-ua-platform': '"Windows"',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ml;q=0.7',
+        'if-none-match': 'W/"1a6-bT18ZNTYG3afbyrie1qrPAew77U"'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/chat/findOne/648ef6040ed4f835ca409688',
+      query: {}
+    },
+    res: { statusCode: 304 },
+    responseTime: 55
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP GET /chat/findOne/648ef6040ed4f835ca409688'
+}
+{
+  meta: {
+    req: {
+      url: '/chat/findOne/648ef5ec0ed4f835ca409683',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"',
+        'content-type': 'Application/json',
+        refresh: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiaGVsbG8iLCJpZCI6IjY0OGVmNjA0MGVkNGY4MzVjYTQwOTY4OCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg3MTAwNTU1LCJleHAiOjE2ODcxNDM3NTV9.8J3ZlDkUdDOBNGRqK9v0FCoQKO_6l1Msnr0OjF0ED9o',
+        'sec-ch-ua-mobile': '?0',
+        authorization: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiaGVsbG8iLCJpZCI6IjY0OGVmNjA0MGVkNGY4MzVjYTQwOTY4OCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg3MTAwNTU1LCJleHAiOjE2ODcxMDc3NTV9.SEE8BE7IP3hSvjMSPnSMACuixLc-EuEGU7GmAk4YbBQ',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51',
+        'sec-ch-ua-platform': '"Windows"',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-US,en;q=0.9',
+        'if-none-match': 'W/"185-OFHzWANkQDxlBeke4W6segKD93Y"'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/chat/findOne/648ef5ec0ed4f835ca409683',
+      query: {}
+    },
+    res: { statusCode: 304 },
+    responseTime: 42
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP GET /chat/findOne/648ef5ec0ed4f835ca409683'
+}
+{
+  meta: {
+    req: {
+      url: '/chat/getMsg',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'content-length': '13',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Microsoft Edge";v="114"',
+        'content-type': 'Application/json',
+        refresh: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiaGVsbG8iLCJpZCI6IjY0OGVmNjA0MGVkNGY4MzVjYTQwOTY4OCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg3MTAwNTU1LCJleHAiOjE2ODcxNDM3NTV9.8J3ZlDkUdDOBNGRqK9v0FCoQKO_6l1Msnr0OjF0ED9o',
+        'sec-ch-ua-mobile': '?0',
+        authorization: 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiaGVsbG8iLCJpZCI6IjY0OGVmNjA0MGVkNGY4MzVjYTQwOTY4OCIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjg3MTAwNTU1LCJleHAiOjE2ODcxMDc3NTV9.SEE8BE7IP3hSvjMSPnSMACuixLc-EuEGU7GmAk4YbBQ',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.51',
+        'sec-ch-ua-platform': '"Windows"',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-US,en;q=0.9'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/chat/getMsg',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 42
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP POST /chat/getMsg'
+}
+{
+  meta: {
+    req: {
+      url: '/user/getOtp',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'content-length': '34',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        'content-type': 'application/json',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ml;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/user/getOtp',
+      query: {}
+    },
+    res: { statusCode: 202 },
+    responseTime: 1580
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP POST /user/getOtp'
+}
+{
+  meta: {
+    req: {
+      url: '/user/forgot',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'content-length': '68',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        'content-type': 'application/json',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ml;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/user/forgot',
+      query: {}
+    },
+    res: { statusCode: 406 },
+    responseTime: 43
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP POST /user/forgot'
+}
+{
+  meta: {
+    req: {
+      url: '/user/forgot',
+      headers: {
+        host: 'localhost:8080',
+        connection: 'keep-alive',
+        'content-length': '68',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-ch-ua-mobile': '?0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+        'content-type': 'application/json',
+        accept: '*/*',
+        origin: 'http://127.0.0.1:5501',
+        'sec-fetch-site': 'cross-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        referer: 'http://127.0.0.1:5501/',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8,ml;q=0.7'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/user/forgot',
+      query: {}
+    },
+    res: { statusCode: 202 },
+    responseTime: 142
+  },
+  level: '\x1B[32minfo\x1B[39m',
+  message: 'HTTP POST /user/forgot'
+}
