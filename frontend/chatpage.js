@@ -1,6 +1,8 @@
 http://127.0.0.1:5500/index.html
 
-let globleData,globleRoom,selfObjectId;
+var globleData
+var globleRoom
+var selfObjectId;
 const socket = io("http://localhost:8080/", { transports: ["websocket"] })
 const allConver = document.querySelector(".chat-list");
 const allChat = document.querySelector(".chat-box");
@@ -24,7 +26,7 @@ const token = urlParams.get('token') || JSON.parse(localStorage.getItem("token")
 const refreshToken = urlParams.get('refreshToken') || JSON.parse(localStorage.getItem("refreshToken"))
 const myName = urlParams.get('myName') || JSON.parse(localStorage.getItem("myName"))
 const role = urlParams.get('role') || JSON.parse(localStorage.getItem("role"))
-
+ console.log(myAvtar)
 localStorage.setItem("token", JSON.stringify(token));
 localStorage.setItem("refreshToken", JSON.stringify(refreshToken));
 localStorage.setItem("myAvtar", JSON.stringify(myAvtar));
@@ -109,12 +111,12 @@ input.addEventListener("keypress", function(event) {
 });
 
 video.addEventListener("click", ()=>{
-    socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5500/index.html/option?room=${globleRoom}&usertype=t">join video call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
-    window.location.href=`http://127.0.0.1:5500/index.html/option?room=${globleRoom}&usertype=c`
+    socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5501/index.html/option?room=${globleRoom}&usertype=t">join video call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
+    window.location.href=`http://127.0.0.1:5501/index.html/option?room=${globleRoom}&usertype=c`
 })
 vice.addEventListener("click", ()=>{
-    socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5500/index.html/vice.html?room=${globleRoom}&usertype=t">join vice call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
-    window.location.href=`http://127.0.0.1:5500/index.html/vice?room=${globleRoom}&usertype=c`
+    socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5501/index.html/vice.html?room=${globleRoom}&usertype=t">join vice call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
+    window.location.href=`http://127.0.0.1:5501/index.html/vice?room=${globleRoom}&usertype=c`
 })
 // all the functions witch are suppoting the rendr of dom here
 function renderConnectins(data){

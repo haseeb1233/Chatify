@@ -256,6 +256,8 @@ userRouer.post("/logout",validator, async (req, res) => {
 });
 userRouer.post("/getOtp", async (req, res) => {
   console.log(req.body);
+  const user=await userModel.findOne({ email: req.body.email })
+  console.log(user)
   try {
     if (await userModel.findOne({ email: req.body.email })) {
       console.log("inside get otp after finduser email")
@@ -270,7 +272,7 @@ userRouer.post("/getOtp", async (req, res) => {
       sgMail.setApiKey(process.env.SendGrid_Key);
       const msg = {
         to: req.body.email,
-        from: "itsmahendramohane11@gmail.com",
+        from: "haseebshs@gmail.com",
         subject: "Reset you Password for chatify App",
         text: `Your OTP for Reseting Passwrd is ${globleotp} valid for 5`,
       };
@@ -290,8 +292,9 @@ userRouer.post("/getOtp", async (req, res) => {
 userRouer.post("/forgot", async (req, res) => {
   try {
     let data = await otpModel.findOne({email:req.body.email});
-    console.log(otp);
+    console.log(req.body.otp,data.otp,"ghk");
     if (req.body.otp && req.body.otp == data.otp) {
+      console.log("body")
       let user = await userModel.findOne({ email: req.body.email });
       req.body.password = bcrypt.hashSync(req.body.password, 2);
       await userModel.findByIdAndUpdate(
