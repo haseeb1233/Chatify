@@ -1,30 +1,30 @@
 # Chatify
 
-Welcome to Chatify the whatsapp like realtime chating web application.
+* Welcome to Chatify the whatsapp like realtime chating web application.
 
-For Using application you can find steps below.
+* For Using application you can find steps below.
 
-tech stack ==>
+* tech stack ==>
 
-express.js,socket.io,javascript,html,css,mongodb.
+* express.js,socket.io,javascript,html,css,mongodb.
 
-Routes ==>
+* Routes ==>
 
-/user/reg to register now user.
+* /user/reg to register now user.
 
-/user/log to login in application.
+* /user/log to login in application.
 
-/user/block for blocking users from applications.
+* /user/block for blocking users from applications.
 
-/user/unblock for unblocking users from applications.
+* /user/unblock for unblocking users from applications.
 
-/user/forgot for forgot password.
+* /user/forgot for forgot password.
 
-/chat/ for getting all the user's of application.
+* /chat/ for getting all the user's of application.
 
-/chat/getChat for getting most 10 recent chat messages.
+* /chat/getChat for getting most 10 recent chat messages.
 
-/chat/addCon for adding new connection in your account.
+* /chat/addCon for adding new connection in your account.
 
 # Step 1
 You can enter your name , email and password and register in our application. or you can use the google or github auth. if already registered you can use login link.
