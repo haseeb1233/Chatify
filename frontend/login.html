@@ -130,15 +130,18 @@ let flag = false
     document.getElementById('signup').addEventListener('click', (event) => {
       event.preventDefault();
       console.log("yes");
+      if(document.getElementById("email").value=="admin"&&document.getElementById("password").value){
+        window.location.assign("./adminpage.html")
+      }
       const payload = {
     
        email:document.getElementById("email").value,
       
        password:document.getElementById("password").value,
-      
+  
    }
 console.log(payload);
-   fetch("http://localhost:8080/user/log",{
+   fetch("https://whatsapp-backend.up.railway.app/user/log",{
        method:"POST",
        headers:{"content-type":"application/json"},
        body:JSON.stringify(payload)

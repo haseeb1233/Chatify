@@ -268,11 +268,12 @@ userRouer.post("/getOtp", async (req, res) => {
         email: req.body.email,
         otp: globleotp
       });
+      console.log(newOtp)
       await newOtp.save();
       sgMail.setApiKey(process.env.SendGrid_Key);
       const msg = {
         to: req.body.email,
-        from: "haseebshs@gmail.com",
+        from: "ahaseebtk@gmail.com",
         subject: "Reset you Password for chatify App",
         text: `Your OTP for Reseting Passwrd is ${globleotp} valid for 5`,
       };

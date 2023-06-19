@@ -3,7 +3,7 @@ http://127.0.0.1:5500/index.html
 var globleData
 var globleRoom
 var selfObjectId;
-const socket = io("http://localhost:8080/", { transports: ["websocket"] })
+const socket = io("https://whatsapp-backend.up.railway.app/", { transports: ["websocket"] })
 const allConver = document.querySelector(".chat-list");
 const allChat = document.querySelector(".chat-box");
 const chatIn = document.querySelector(".chatInp");
@@ -39,7 +39,7 @@ fetchConnectins(JSON.parse(localStorage.getItem("token")));
 }
 
 async function fetchConnectins(token){
-        let data = await fetch(`http://localhost:8080/chat/getCon`,{
+        let data = await fetch(`https://whatsapp-backend.up.railway.app/chat/getCon`,{
         method:'POST',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem("token"))}`},"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`,
         }).then(response => response.json());
@@ -73,7 +73,7 @@ console.log(inp,frendId);
         showNameAndStatus(frendId);
     socket.emit("join-oom",({selfObjectId,inp}))
     globleRoom=inp;
-    fetch(`http://localhost:8080/chat/getMsg`,{
+    fetch(`https://whatsapp-backend.up.railway.app/chat/getMsg`,{
         method:'POST',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
         body:JSON.stringify({consId:inp})
@@ -111,8 +111,8 @@ input.addEventListener("keypress", function(event) {
 });
 
 video.addEventListener("click", ()=>{
-    socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5501/index.html/option?room=${globleRoom}&usertype=t">join video call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
-    window.location.href=`http://127.0.0.1:5501/index.html/option?room=${globleRoom}&usertype=c`
+    socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5501/frontend/option.html?room=${globleRoom}&usertype=t">join video call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
+    window.location.href=`http://127.0.0.1:5501/frontend/option.html?room=${globleRoom}&usertype=c`
 })
 vice.addEventListener("click", ()=>{
     socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5501/index.html/vice.html?room=${globleRoom}&usertype=t">join vice call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
@@ -153,7 +153,7 @@ function rennderMsg(res){
     allChat.innerHTML=ar;
 }
 function showNameAndStatus(inp){
-    fetch(`http://localhost:8080/chat/findOne/${inp}`,{
+    fetch(`https://whatsapp-backend.up.railway.app/chat/findOne/${inp}`,{
         method:'GET',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
     }).then((res)=>res.json()).then((res)=>{
@@ -166,7 +166,7 @@ function showNameAndStatus(inp){
 }
 
 logout.addEventListener("click",()=>{
-    fetch(`http://localhost:8080/user/logout`,{
+    fetch(`https://whatsapp-backend.up.railway.app/user/logout`,{
         method:'POST',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('refreshToken'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
     }).then((res)=>res.json()).then((res)=>{

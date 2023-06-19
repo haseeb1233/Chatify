@@ -86,7 +86,7 @@ function displayUsers(data) {
             let url = moethod == "Blocked" ?   "blockUser" : "unBlockUser"
             console.log(email,Met,url,moethod);
             fetch(`http://localhost:8080/user/${url}`,{
-                method:Met,
+                method:get,
                 headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
                 body:JSON.stringify({email:email})
             }).then((res)=>res.json())

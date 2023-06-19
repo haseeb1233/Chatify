@@ -54,7 +54,7 @@
     const contactsList = document.getElementById("contacts-list");
       contactsList.innerHTML = "";
   // Retrieve contacts from your data source
-  fetch(`http://localhost:8080/chat/`,{
+  fetch(`https://whatsapp-backend.up.railway.app/chat/`,{
         method:'GET',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
     }).then((res)=>res.json()).then((res)=>{
@@ -67,7 +67,7 @@
 function addCon(id,tar,name){
     console.log("ok");
     console.log({frendId:id,frendAvtar:tar,frendName:name,id:JSON.parse(localStorage.getItem("selfObjectId")),myAvtar:JSON.parse(localStorage.getItem("myAvtar")),myName:JSON.parse(localStorage.getItem("myName"))})
-    fetch(`http://localhost:8080/chat/addCon`,{
+    fetch(`https://whatsapp-backend.up.railway.app/chat/addCon`,{
         method:'POST',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
         body:JSON.stringify({frendId:id,frendAvtar:tar,frendName:name,id:JSON.parse(localStorage.getItem("selfObjectId")),myAvtar:JSON.parse(localStorage.getItem("myAvtar")),myName:JSON.parse(localStorage.getItem("myName"))}),
