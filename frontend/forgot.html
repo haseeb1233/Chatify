@@ -115,7 +115,7 @@ document.getElementById('createaccount').addEventListener('click', () => {
   if(confirm(`${document.getElementById('email').value} is this your email want to continue`) == true){
     let obj = {email:document.getElementById('email').value}
     console.log(obj)
-    fetch("https://whatsapp-backend.up.railway.app/user/getOtp",{
+    fetch("https://whatsapp-clone-9hg3.onrender.com/user/getOtp",{
        method:"POST",
        headers:{"content-type":"application/json"},
        body:JSON.stringify(obj)
@@ -137,7 +137,7 @@ document.getElementById('signup').addEventListener('click', () => {
        password:document.getElementById('password').value,
        otp:document.getElementById('otp').value}
        console.log(obj)
-    fetch("https://whatsapp-backend.up.railway.app/user/forgot",{
+    fetch("https://whatsapp-clone-9hg3.onrender.com/user/forgot",{
        method:"POST",
        headers:{"content-type":"application/json"},
        body:JSON.stringify(obj)

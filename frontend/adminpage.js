@@ -21,7 +21,7 @@ document.querySelector(".logo").addEventListener("click",()=>{
     window.location.href = "./chatpage.html"
 });
 
-fetch('http://localhost:8080/chat/',{
+fetch('https://whatsapp-clone-9hg3.onrender.com/chat/',{
     method:'GET',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem("token"))}`},"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`,
 })
@@ -85,7 +85,7 @@ function displayUsers(data) {
             let Met = moethod == "Blocked" ?  "POST" : "DELETE";
             let url = moethod == "Blocked" ?   "blockUser" : "unBlockUser"
             console.log(email,Met,url,moethod);
-            fetch(`http://localhost:8080/user/${url}`,{
+            fetch(`https://whatsapp-clone-9hg3.onrender.com/user/${url}`,{
                 method:get,
                 headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
                 body:JSON.stringify({email:email})

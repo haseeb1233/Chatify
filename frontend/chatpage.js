@@ -3,7 +3,7 @@ http://127.0.0.1:5500/index.html
 var globleData
 var globleRoom
 var selfObjectId;
-const socket = io("https://whatsapp-backend.up.railway.app/", { transports: ["websocket"] })
+const socket = io("https://whatsapp-clone-9hg3.onrender.com/", { transports: ["websocket"] })
 const allConver = document.querySelector(".chat-list");
 const allChat = document.querySelector(".chat-box");
 const chatIn = document.querySelector(".chatInp");
@@ -39,7 +39,7 @@ fetchConnectins(JSON.parse(localStorage.getItem("token")));
 }
 
 async function fetchConnectins(token){
-        let data = await fetch(`https://whatsapp-backend.up.railway.app/chat/getCon`,{
+        let data = await fetch(`https://whatsapp-clone-9hg3.onrender.com/chat/getCon`,{
         method:'POST',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem("token"))}`},"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`,
         }).then(response => response.json());
@@ -73,7 +73,7 @@ console.log(inp,frendId);
         showNameAndStatus(frendId);
     socket.emit("join-oom",({selfObjectId,inp}))
     globleRoom=inp;
-    fetch(`https://whatsapp-backend.up.railway.app/chat/getMsg`,{
+    fetch(`https://whatsapp-clone-9hg3.onrender.com/chat/getMsg`,{
         method:'POST',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
         body:JSON.stringify({consId:inp})
@@ -153,7 +153,7 @@ function rennderMsg(res){
     allChat.innerHTML=ar;
 }
 function showNameAndStatus(inp){
-    fetch(`https://whatsapp-backend.up.railway.app/chat/findOne/${inp}`,{
+    fetch(`https://whatsapp-clone-9hg3.onrender.com/chat/findOne/${inp}`,{
         method:'GET',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('token'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
     }).then((res)=>res.json()).then((res)=>{
@@ -166,7 +166,7 @@ function showNameAndStatus(inp){
 }
 
 logout.addEventListener("click",()=>{
-    fetch(`https://whatsapp-backend.up.railway.app/user/logout`,{
+    fetch(`https://whatsapp-clone-9hg3.onrender.com/user/logout`,{
         method:'POST',
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('refreshToken'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
     }).then((res)=>res.json()).then((res)=>{

@@ -46,6 +46,7 @@ document.querySelector('.aouthbuttongit').addEventListener('click',()=>{
     
     form.addEventListener('submit', (event) => {
       event.preventDefault();
+      console.log("hi")
       
    const payload = {
        name:document.getElementById("firstname").value,
@@ -53,7 +54,7 @@ document.querySelector('.aouthbuttongit').addEventListener('click',()=>{
        password:document.getElementById("password").value,
    }
 
-   fetch("https://whatsapp-backend.up.railway.app/user/reg",{
+   fetch("https://whatsapp-clone-9hg3.onrender.com/user/reg",{
        method:"POST",
        headers:{"content-type":"application/json"},
        body:JSON.stringify(payload)
