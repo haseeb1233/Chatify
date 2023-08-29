@@ -49,7 +49,7 @@ userRouer.get(
         process.env.refresh_key,
         { expiresIn: "120s" }
       );
-      res.redirect(`http://127.0.0.1:5501/frontend/chatpage.html?avtar=${req.user.avtar}&id=${fetch_user._id}&myName=${fetch_user.name}&role=${fetch_user.role}&token=${token}&refreshToken=${refreshToken}`)
+      res.redirect(`https://astonishing-donut-83dd0e.netlify.app/chatpage.html?avtar=${req.user.avtar}&id=${fetch_user._id}&myName=${fetch_user.name}&role=${fetch_user.role}&token=${token}&refreshToken=${refreshToken}`)
       console.log("here");
 // res.redirect(`http://127.0.0.1:5501/frontend/chatpage.html?avtar=${req.user.avtar}&id=${fetch_user._id}&token=${token}&refreshToken=${refreshToken}`)
 
@@ -293,7 +293,7 @@ userRouer.post("/getOtp", async (req, res) => {
 userRouer.post("/forgot", async (req, res) => {
   try {
     let data = await otpModel.findOne({email:req.body.email});
-    console.log(req.body.otp,data.otp,"ghk");
+    console.log(req.body.otp,data.otp);
     if (req.body.otp && req.body.otp == data.otp) {
       console.log("body")
       let user = await userModel.findOne({ email: req.body.email });
