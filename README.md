@@ -56,7 +56,7 @@ By clicking on any name of user's profile that available on our website you can 
 
 
 
-* Deployed Link : https://reliable-cassata-3a3721.netlify.app/
+* Deployed Link : https://astonishing-donut-83dd0e.netlify.app/
 
 
 
