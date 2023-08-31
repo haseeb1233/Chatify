@@ -111,12 +111,12 @@ input.addEventListener("keypress", function(event) {
 });
 
 video.addEventListener("click", ()=>{
-    socket.emit("chat",{room:globleRoom,msg:`<a href="https://whatsapp-clone-9hg3.onrender.com/frontend/option.html?room=${globleRoom}&usertype=t">join video call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
-    window.location.href=`https://whatsapp-clone-9hg3.onrender.com/frontend/option.html?room=${globleRoom}&usertype=c`
+    socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5501/frontend/option.html?room=${globleRoom}&usertype=t">join video call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
+    window.location.href=`http://127.0.0.1:5501/frontend/option.html?room=${globleRoom}&usertype=c`
 })
 vice.addEventListener("click", ()=>{
-    socket.emit("chat",{room:globleRoom,msg:`<a href="https://whatsapp-clone-9hg3.onrender.com/frontend/vice.html?room=${globleRoom}&usertype=t">join vice call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
-    window.location.href=`https://whatsapp-clone-9hg3.onrender.com/frontend/vice.html?room=${globleRoom}&usertype=c`
+    socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5501/frontend/vice.html?room=${globleRoom}&usertype=t">join vice call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
+    window.location.href=`http://127.0.0.1:5501/frontend/vice.html?room=${globleRoom}&usertype=c`
 })
 // all the functions witch are suppoting the rendr of dom here
 function renderConnectins(data){
