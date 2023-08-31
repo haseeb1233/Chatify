@@ -93,9 +93,6 @@ app.get("/", (req, res) => {
     logger.error(err)
   }
 });
-
-
-
   
 httpServer.listen(process.env.PORT , async() => {
   try {
@@ -107,3 +104,4 @@ httpServer.listen(process.env.PORT , async() => {
   }
   console.log(`Server started at ${process.env.PORT}`);
 })
+

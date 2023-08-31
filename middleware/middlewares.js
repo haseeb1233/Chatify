@@ -8,46 +8,50 @@ const validator = (req, res, next) => {
   ref_token = req.headers?.ref_authorization ? req.headers?.ref_authorization?.split(" ")[1] : undefined;
   token = req.headers?.authorization ? req.headers?.authorization?.split(" ")[1] : req.cookies.token;
 
-  jwt.verify(token, process.env.token_key, (err, decoded) => {
+  if(token){
+    jwt.verify(token, process.env.token_key, (err, decoded) => {
 
-    if (err) {
-      if (err.expiredAt && ref_token) {
-        jwt.verify(ref_token, process.env.refresh_key, async (err, decoded) => {
-          if (err) {
-            res
-              .status(401)
-              .json({ error: `please login again your token is not valid` });
-          } else {
-            if ( await redis.get(req.body.name)){
+      if (err) {
+        if (err.expiredAt && ref_token) {
+          jwt.verify(ref_token, process.env.refresh_key, async (err, decoded) => {
+            if (err) {
               res
-                .status(403)
-                .json({ error: `please login you are in blacklist` });
+                .status(401)
+                .json({ error: `please login again your token is not valid` });
             } else {
-              let token = jwt.sign(
-                { user: decoded.user, id: decoded.id.id, role: decoded.role },
-                process.env.token_key,
-                { expiresIn: "6s" }
-              );
-              res.cookie("token", token);
-              req.body.user = decoded.user;
-              req.body.id = decoded.id;
-              req.body.role = decoded.role;
-              next();
+              if ( await redis.get(req.body.name)){
+                res
+                  .status(403)
+                  .json({ error: `please login you are in blacklist` });
+              } else {
+                let token = jwt.sign(
+                  { user: decoded.user, id: decoded.id.id, role: decoded.role },
+                  process.env.token_key,
+                  { expiresIn: "6s" }
+                );
+                res.cookie("token", token);
+                req.body.user = decoded.user;
+                req.body.id = decoded.id;
+                req.body.role = decoded.role;
+                next();
+              }
             }
-          }
-        });
+          });
+        } else {
+          res
+            .status(406)
+            .json({ error: `please login again your token is not valid` });
+        }
       } else {
-        res
-          .status(406)
-          .json({ error: `please login again your token is not valid` });
+        req.body.user = decoded.user;
+        req.body.id = decoded.id;
+        req.body.role = decoded.role;
+        next();
       }
-    } else {
-      req.body.user = decoded.user;
-      req.body.id = decoded.id;
-      req.body.role = decoded.role;
-      next();
-    }
-  });
+    });
+  }else{
+    
+  }
 };
 
 const authorization = (req, res, next) => {

@@ -49,7 +49,7 @@ userRouer.get(
         process.env.refresh_key,
         { expiresIn: "120s" }
       );
-      res.redirect(`https://astonishing-donut-83dd0e.netlify.app/chatpage.html?avtar=${req.user.avtar}&id=${fetch_user._id}&myName=${fetch_user.name}&role=${fetch_user.role}&token=${token}&refreshToken=${refreshToken}`)
+      res.redirect(`https://64f051a459547b4ff53c6034--prismatic-tarsier-b38c29.netlify.app/chatpage.html?avtar=${req.user.avtar}&id=${fetch_user._id}&myName=${fetch_user.name}&role=${fetch_user.role}&token=${token}&refreshToken=${refreshToken}`)
       console.log("here");
 // res.redirect(`http://127.0.0.1:5501/frontend/chatpage.html?avtar=${req.user.avtar}&id=${fetch_user._id}&token=${token}&refreshToken=${refreshToken}`)
 
@@ -659,3 +659,5 @@ module.exports = { userRouer };
 // }
 // //-------------------- All exports ---------------------------------------------
 // module.exports = { userRouer };
+
+

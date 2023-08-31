@@ -7,7 +7,7 @@ const socket = io("https://whatsapp-clone-9hg3.onrender.com/", { transports: ["w
 const allConver = document.querySelector(".chat-list");
 const allChat = document.querySelector(".chat-box");
 const chatIn = document.querySelector(".chatInp");
-const chatSend = document.querySelector(".sendChat");
+const chatSend = document.querySelectorooolpokik(".sendChat");
 const myPhoto = document.getElementById("myAvtar");
 const video = document.getElementById("video");
 const vice = document.getElementById("vice");
@@ -18,7 +18,7 @@ let sendAudio = new Audio("./audio/send.mp3")
 let getAudio = new Audio("./audio/geting.mp3")
 
 // ----------------- All the requirements here --------------------------------
-window.onload = () =>{ 
+window.onload = () => { 
 const urlParams =  new URLSearchParams(window.location.search)
 selfObjectId = urlParams.get('id') || JSON.parse(localStorage.getItem("selfObjectId"))
 const myAvtar = urlParams.get('avtar') || JSON.parse(localStorage.getItem("myAvtar"))

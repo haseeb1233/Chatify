@@ -1,20 +1,12 @@
-require("dotenv").config()
-const ioredis = require("ioredis")
-const congi ={
-    host:process.env.redisHost,
-    port:process.env.redisPORT,
-    username:"default",
-    password:process.env.redisPass
-}
+const Redis = require("ioredis");
 
-const redis = new ioredis(congi)
 
-// redis.on("connect", async() => {
-//     console.log("Connected to redis");
-//   });
-  
-//   redis.on("error", (error) => {
-//     console.error("RedisLabs connection error:", error);
-//   });
+const redis = new Redis({
+    port: 17896, 
+    host: 'redis-17896.c301.ap-south-1-1.ec2.cloud.redislabs.com', 
+    password: '524j26DVqvknVtQJcEgoTMQN9rhpENUT',
+});
 
-module.exports={redis}
+
+
+module.exports = {redis};
