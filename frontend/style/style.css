@@ -370,3 +370,85 @@ color: 25d366;
 justify-content: right;
 
 }
+
+/* responsiveness */
+
+/* Small screens (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .name{
+        margin-bottom: 20px;
+        /* color: red; */
+    }
+    .userimg{
+        /* height: 10px; */
+        /* margin-top: -10px; */
+        /* height: 20px;
+       width: 20px; */
+       /* padding-top: 50px; */
+       display: none;
+    }
+    .container {
+      flex-direction: column;
+    }
+    
+    .leftside, .rightside {
+      width: 100%;
+    }
+    
+    .rightside {
+      margin-top: 10px;
+    }
+    
+    .search input {
+      width: 85%;
+    }
+    
+    .nav-icon {
+      margin-right: 10px;
+    }
+    
+    .header .imgtext {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .name {
+      margin-top: 5px;
+      text-align: center;
+    }
+    
+    .chatinput {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .sendChat {
+      margin-top: 10px;
+    }
+  }
+  
+  /* Extra small screens (max-width: 500px) */
+  @media screen and (max-width: 500px) {
+    .search input {
+      width: 80%;
+    }
+    .userimg{
+       /* margin-top: 20px; */
+       /* height: 20px;
+       width: 20px; */
+       display: none;
+    }
+    .name{
+        margin-bottom: 20px;
+        /* color: red; */
+       
+    }
+    
+    .nav-icon {
+      margin-right: 5px;
+    }
+    
+    .chatInp {
+      width: 75%;
+    }
+  }

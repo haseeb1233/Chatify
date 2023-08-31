@@ -60,7 +60,7 @@ button:hover{
 
 /* Create/join room */
 
-#main{
+ #main{
     margin: auto;
     border-radius: 10px;
     width: 30%;
@@ -90,9 +90,9 @@ button:hover{
 #create-room:hover, #join-room:hover{
     cursor: pointer;
     background-color: #4778db;
-}
+} 
 
-@media screen and (max-width: 500px) {
+ @media screen and (max-width: 500px) {
     #main{
         width: 80%;
         padding: 30px;
@@ -103,4 +103,5 @@ button:hover{
     #create-room, #join-room{
         width: 90%;
     }
-}
+} 
+ 
