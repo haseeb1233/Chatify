@@ -1,4 +1,4 @@
-
+/* 
 body {
   font-family: Arial, sans-serif;
   background-color: #f1f1f1;
@@ -97,4 +97,129 @@ form input{
   justify-content: center;
   font-size: 40px;
   color: #00a884;
+} */
+
+
+
+/* Base styles */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="date"],
+.form-container input[type="number"],
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+}
+
+.form-container input[type="submit"] {
+  background-color: #00a884;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px;
+  font-weight: bold;
+}
+
+.aouthbutton,
+.aouthbuttongit {
+  background-color: #00a884;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px;
+  font-weight: bold;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: rgb(173, 172, 172);
+  color: #00a884;
+  border-width: 2px;
+  border-color: #00a884;
+}
+
+.form-container a {
+  color: #00a884;
+  text-decoration: underline;
+}
+
+.form-container a:hover {
+  text-decoration: underline;
+}
+
+form input {
+  font-size: 18px;
+}
+
+#flx {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  color: #00a884;
+}
+
+/* Media queries for responsiveness */
+
+/* Small screens (max-width: 500px) */
+@media screen and (max-width: 800px) {
+  .form-container {
+    padding: 10px;
+  }
+  
+  .form-container h2 {
+    font-size: 24px;
+  }
+ 
+  .form-container input[type="submit"],
+  .aouthbutton,
+  .aouthbuttongit {
+    font-size: 14px;
+    padding: 8px 16px;
+    /* margin: 10px; */
+    /* width: 100%; */
+    text-align: center;
+    display: block;
+    width: auto; /* Reset width */
+    margin: 10px auto; /* Center the buttons */
+  }
+  
+  form input {
+    font-size: 16px;
+  }
+  
+  #flx {
+    font-size: 32px;
+  }
 }
