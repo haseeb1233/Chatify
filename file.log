@@ -1,4 +1,4 @@
-{
+  {
   meta: {
     req: {
       url: '/user/auth/google',
