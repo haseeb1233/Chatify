@@ -111,8 +111,8 @@ input.addEventListener("keypress", function(event) {
 });
 
 video.addEventListener("click", ()=>{
-    socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5501/frontend/option.html?room=${globleRoom}&usertype=t">join video call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
-    window.location.href=`http://127.0.0.1:5501/frontend/option.html?room=${globleRoom}&usertype=c`
+    socket.emit("chat",{room:globleRoom,msg:`<a href="./videocall.html">join video call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
+    window.location.href=`./videocall.html`
 })
 vice.addEventListener("click", ()=>{
     socket.emit("chat",{room:globleRoom,msg:`<a href="http://127.0.0.1:5501/frontend/vice.html?room=${globleRoom}&usertype=t">join vice call</a>`,sendBy:selfObjectId,time:Date(Date.now())});
@@ -171,7 +171,7 @@ logout.addEventListener("click",()=>{
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('refreshToken'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
     }).then((res)=>res.json()).then((res)=>{
         console.log(res);
-        // localstorage.clear()
+        localstorage.clear()
         window.location.href = "./index.html"
     }).catch((err)=>console.log(err)) 
 });
