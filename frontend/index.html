@@ -1,75 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Signup here</title>
- 
-
-  
-  <link rel="stylesheet" href="./style/signup.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN-UP Here</title>
+    <link rel="stylesheet" href="./style/signup.css">
 </head>
 <body>
-<h1 id="flx">Welcome</h1>
-  <div class="form-container">
-    <h2 style="margin-top: 20px; margin-bottom: 20px; color: #00a884; ">Account Details</h2>
-    <form>
-      <input id="firstname" type="text" name="first_name" placeholder="First Name" required>
-      <input id="email"  type="email" name="email" placeholder="Email Address" required>
-      <input id="password"  type="password" name="password" placeholder="Password" required>
-      <input type="submit" value="Sign Up">
-    </form>
-    
-    <p>Already have an account? <a href="login.html">Login here</a></p>
-
-    <button class="aouthbutton">Continue with Google</button>
-    <button class="aouthbuttongit">Continue with Github</button>
-  </div>
+<div class="form">
+    <div id="topsignclose">
+        <span>Sign Up</span>
+    </div>
+    <input type="text" id="firstname" name="first_name" placeholder="NAME" required><br>
+    <input type="email" id="email" name="email" placeholder="EMAIL ADDRESS" required><br>
+    <input type="password" id="password" name="password" placeholder="PASSWORD" required><br>
+    <a href="./login.html" id="forg">Already have an account?<u> Log in here</u></a>
+    <div class="flex">
+        <button id="createaccount" type="submit">SUBMIT</button>
+        <!-- <button id="signup">SIGN UP</button> -->
+        <button class="social-button">Continue with Google</button>
+        <button class="social-button2">Continue with GitHub</button>
+    </div>
+</div>
 </body>
 </html>
 <script>
-  
-const navLinks = document.querySelector('.nav-links');
-const links = document.querySelectorAll('.nav-links li');
+  const navLinks = document.querySelector('.nav-links');
+  const links = document.querySelectorAll('.nav-links li');
+  document.querySelector('.social-button').addEventListener('click',()=>{
+    console.log("yes");
+    window.location.href="https://whatsapp-clone-9hg3.onrender.com/user/auth/google"
+  })
+  document.querySelector('.social-button2').addEventListener('click',()=>{
+    window.location.href="https://whatsapp-backend.up.railway.app/user/auth/github"
+  });
+      const form = document.querySelector('form');
+      const nameInput = document.getElementById('firstname');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const signup=document.getElementById("createaccount")
+      signup.addEventListener('click', (event) => {
+        event.preventDefault();
+        // console.log("hi")  
+     const payload = {
+         name:nameInput.value,
+         email:emailInput.value,
+         password:passwordInput.value,
+     }
+     if(payload.name=="" ||payload.email==""||password=="" )
+        {
+          alert("Please fill fields first !!")
+        }
+        else
+        {
+  fetch("https://whatsapp-clone-9hg3.onrender.com/user/reg",{
+      method:"POST",
+      headers:{"content-type":"application/json"},
+      body:JSON.stringify(payload)
+  }).then(res=> res.json())
+  .then((res)=>{
+  console.log(res)
+  if(res.error){
+   alert(res.error)
+  }else{
+   alert("thakyou for register")
+     window.location.href="./login.html";
+  }
+   })
+  .catch(res=>console.log(res))
+        }
+      });
+  </script>  
 
-
-
-document.querySelector('.aouthbutton').addEventListener('click',()=>{
-  console.log("yes");
-  window.location.href="https://whatsapp-clone-9hg3.onrender.com/user/auth/google"
-})
-document.querySelector('.aouthbuttongit').addEventListener('click',()=>{
-  window.location.href="https://whatsapp-backend.up.railway.app/user/auth/github"
-});
-
-    const form = document.querySelector('form');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      console.log("hi")
-      
-   const payload = {
-       name:document.getElementById("firstname").value,
-       email:document.getElementById("email").value,
-       password:document.getElementById("password").value,
-   }
-
-   fetch("https://whatsapp-clone-9hg3.onrender.com/user/reg",{
-       method:"POST",
-       headers:{"content-type":"application/json"},
-       body:JSON.stringify(payload)
-   
-   }).then(res=> res.json())
-   .then((res)=>{
-   console.log(res)
-   if(res.error){
-    alert(res.error)
-   }else{
-    alert("thakyou for register")
-      window.location.href="./login.html";
-   }
-    })
-   .catch(res=>console.log(res))
-    });
-</script> 

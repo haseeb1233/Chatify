@@ -892,4 +892,10 @@ nav div{
 
 .contact:hover{
     cursor: pointer;
-}
+}  
+
+@media (max-width: 450px) {
+   
+   
+  }
+
