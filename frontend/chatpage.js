@@ -7,7 +7,7 @@ const socket = io("https://whatsapp-clone-9hg3.onrender.com/", { transports: ["w
 const allConver = document.querySelector(".chat-list");
 const allChat = document.querySelector(".chat-box");
 const chatIn = document.querySelector(".chatInp");
-const chatSend = document.querySelectorooolpokik(".sendChat");
+const chatSend = document.querySelector(".sendChat");
 const myPhoto = document.getElementById("myAvtar");
 const video = document.getElementById("video");
 const vice = document.getElementById("vice");
@@ -171,6 +171,7 @@ logout.addEventListener("click",()=>{
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('refreshToken'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
     }).then((res)=>res.json()).then((res)=>{
         console.log(res);
+        // localstorage.clear()
         window.location.href = "./index.html"
     }).catch((err)=>console.log(err)) 
 });
