@@ -1,7 +1,7 @@
 
 let userCard=document.getElementById('user-card')
 let totalUser=document.getElementById('user-count');
-
+let adminCard=document.getElementById('admin-card')
 
 let togglebtn = document.querySelectorAll(".checkbox");
 let body = document.querySelector("body");
@@ -32,6 +32,12 @@ fetch('https://whatsapp-clone-9hg3.onrender.com/chat/',{
     // Userdata=needData.data;
     console.log(data)
     displayUsers(data);
+    const admin=data.filter((ele)=>{
+        if(ele.role=="admin"){
+            return ele
+        }
+    })
+    displayadmin(admin)
 
 })
 .catch((err)=>{
@@ -98,3 +104,31 @@ function displayUsers(data) {
     })
 }
 
+
+// getting admin
+function displayadmin(data) {
+    adminCard.innerHTML="";
+    data.forEach((element)=>{
+        let card=document.createElement('div');
+        card.className="block";
+        let imgbx=document.createElement('div');
+        imgbx.className="imgbx";
+        let image=document.createElement('img');
+        image.setAttribute("src",element.avtar);
+        imgbx.append(image);
+        let details=document.createElement('div');
+        details.className="details"
+        let listhead=document.createElement('div');
+        listhead.className="listHead"
+        let name=document.createElement("h4");
+        name.innerText=element.name;
+        listhead.append(name);
+        details.append(listhead);
+        let ban=document.createElement('div');
+        ban.className="ban";
+        
+        card.append(imgbx,details,ban);
+        adminCard.append(card);
+        
+    })
+}
