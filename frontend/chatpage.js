@@ -171,7 +171,7 @@ logout.addEventListener("click",()=>{
         headers:{'Content-type':'Application/json',"authorization":`bearer ${JSON.parse(localStorage.getItem('refreshToken'))}`,"refresh":`bearer ${JSON.parse(localStorage.getItem("refreshToken"))}`},
     }).then((res)=>res.json()).then((res)=>{
         console.log(res);
-        localstorage.clear()
+        localStorage.clear()
         window.location.href = "./index.html"
     }).catch((err)=>console.log(err)) 
 });
