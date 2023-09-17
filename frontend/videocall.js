@@ -1,7 +1,22 @@
 const APP_ID="356b003e30454b58850748c098ff28b8"
-const TOKEN="007eJxTYHj/eqfga6tkztO1fbwlLAeSdrxY+d3is/L6eYHNTPGhJv8UGIxNzZIMDIxTjQ1MTE2STC0sTA3MTSySDSwt0tKMLJIslM99SGkIZGSYpXuEkZEBAkF8FobcxMw8BgYAZ90fhw=="
+var TOKEN
+fetch("https://videotokenserver.onrender.com/rtcToken")
+.then(res=>res.json())
+.then((data)=>{
+    console.log(data.key)
+    TOKEN= data.key
+    
+})
+.catch((error)=>{
+    console.log(error)
+})
 const CHANNEL="main"
 
+
+setTimeout(delay, 5000);
+
+function delay(){
+    console.log(TOKEN)
 
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
@@ -16,6 +31,7 @@ let joinAndDisplayLocalStream = async () => {
     client.on('user-left', handleUserLeft)
     
     let UID = await client.join(APP_ID, CHANNEL, TOKEN, null)
+    console.log(UID)
 
     localTracks = await AgoraRTC.createMicrophoneAndCameraTracks() 
 
@@ -64,7 +80,6 @@ let handleUserLeft = async (user) => {
 }
 
 let leaveAndRemoveLocalStream = async () => {
-    window.location.href=`./chatpage.html`
     for(let i = 0; localTracks.length > i; i++){
         localTracks[i].stop()
         localTracks[i].close()
@@ -105,3 +120,4 @@ joinStream()
 document.getElementById('leave-btn').addEventListener('click', leaveAndRemoveLocalStream)
 document.getElementById('mic-btn').addEventListener('click', toggleMic)
 document.getElementById('camera-btn').addEventListener('click', toggleCamera)
+}
