@@ -56,7 +56,7 @@ By clicking on any name of user's profile that available on our website you can 
 
 
 
-* Deployed Link : https://65067aad30d1f57cbb8a9d72--sprightly-belekoy-60ab1b.netlify.app/
+* Deployed Link : https://sprightly-belekoy-60ab1b.netlify.app/
 
 
 
